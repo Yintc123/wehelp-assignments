@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>W2</title>
+        <script type="text/javascript">
+            window.onload=function(){
+                alert("hi!");
+            }
+            //第一題
+            function calculate(min, max){
+                var result=0;
+                for(var i=min;i<(max+1);i++){
+                    result+=i
+                }
+                alert(result);
+            }
+            //第二題
+            function avg(data){
+                var employees=data["employees"];
+                var sum=0;
+                for(var i=0;i<employees.length;i++){
+                    sum+=employees[i]["salary"];
+                }
+                alert(sum/data["count"]);
+            }
+            
+            //第三題
+            function maxProduct(nums){
+                var temp;
+                for(var i=0;i<nums.length;i++){
+                    for(var j=i+1;j<nums.length;j++){
+                        if(nums[j]>nums[i]){
+                            temp=nums[i];
+                            nums[i]=nums[j];
+                            nums[j]=temp;
+                        }
+                    }
+                }
+                var result;
+                if(nums[0]*nums[1]>nums[nums.length-1]*nums[nums.length-2]){
+                    result=nums[0]*nums[1];
+                }else{
+                    result=nums[nums.length-1]*nums[nums.length-2];
+                }
+                alert(result);
+            }
+            //maxProduct([5, 20, 2, 6]) // 得到 120
+            //maxProduct([10, -20, 0, 3]) // 得到 30
+            //maxProduct([-1, 2]) // 得到 -2
+            //maxProduct([-1, 0, 2]) // 得到 0
+            //第4題
+            function twoSum(nums, target){
+                var n1;
+                var n2;
+                for(var i=0;i<nums.length;i++){
+                    for(var j=i+1;j<nums.length;j++){
+                        if(nums[i]+nums[j]==target){
+                            n1=i;
+                            n2=j;
+                            break;
+                        }
+                    }
+                }
+                var nums=[n1, n2];
+                //alert(nums);
+                return [n1,n2];
+            }
+            let result=twoSum([2, 11, 7, 15], 9);
+            console.log(result); // show [0, 2] because nums[0]+nums[2] is 9
+            //第五題
+            function maxZeros(nums){
+                var n1=0;
+                var n2=0;
+                for(var i=0;i<nums.length;i++){
+                    if(nums[i]==0){
+                        n1++;
+                        if(n1>n2){
+                            n2=n1;
+                        }
+                    }else{
+                        n1=0;
+                    }
+                }
+                alert(n2);
+            }
+            //maxZeros([0, 1, 0, 0]); // 得到 2
+            //maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]); // 得到 4
+            //maxZeros([1, 1, 1, 1, 1]); // 得到 0
+            //maxZeros([0, 0, 0, 1, 1]) // 得到 3
+        </script>
+        <style type="text/css">
+            div h1{
+                margin:0px;
+                padding:0px;
+            }
+            .box{
+                height:80px;
+                background-color:#93FF93;
+            }
+            .box .box2{
+                //border:1px solid #000000;
+                display:flex;
+            }
+            h2{
+                //border:1px solid #000000;
+                padding:0px;
+                margin:0px;
+            }
+            .box .box2 button{
+                position:absolute;
+                left:150px;
+                margin-top:4px;
+            }
+            .secbox{
+                height:80px;
+                background-color:#93FF93;
+                display:flex;
+                justify-content:center;
+            }
+            .namebox{
+                width:auto;
+                height:auto;
+                text-align:center;
+                border:1px solid #000000;
+                padding:5px 5px 0px 5px;
+            }
+            h3{
+                margin:0px;
+                padding:0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>第一題</h1>
+            <div class="box">
+                <div class="box2">
+                    <h2>1+..+3=?</h2>
+                    <button onclick="calculate(1, 3)">ans</button>
+                </div>
+                <div class="box2">
+                    <h2>4+..+8=?</h2>
+                    <button onclick="calculate(4, 8)">ans</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>第二題</h1>
+            <div class="secbox">
+                <div class="namebox">
+                    <h3>Employee1</h3>
+                    <h3>name:John</h3>
+                    <h3>salary:30000</h3>
+                </div>
+                <div class="namebox">
+                    <h3>Employee2</h3>
+                    <h3>name:Bob</h3>
+                    <h3>salary:60000</h3>
+                </div>
+                <div class="namebox">
+                    <h3>Employee3</h3>
+                    <h3>name:Jenny</h3>
+                    <h3>salary:50000</h3>
+                </div>
+                <div class="namebox">
+                    <h3>Employee人數：3</h3>
+                    <h3>平均薪資：</h3>
+                    <button onclick="
+                        avg({
+                            'count':3,
+                            'employees':[
+                                {
+                                    'name':'John',
+                                    'salary':30000
+                                },
+                                {
+                                    'name':'Bob',
+                                    'salary':60000
+                                },
+                                {
+                                    'name':'Jenny',
+                                    'salary':50000
+                                }
+                            ]
+                        })
+                    ">result</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>第三題</h1>
+            <div class="box" style="height:120px;">
+                <h3>以下陣列兩數相乘最大值為何?</h3>
+                <div class="box2">
+                    <h3>[5, 20, 2, 6]=?</h3>
+                    <button onclick="maxProduct([5, 20, 2, 6])">ans</button>
+                </div>
+                <div class="box2">
+                    <h3>[10, -20, 0, 3]=?</h3>
+                    <button onclick="maxProduct([10, -20, 0, 3])">ans</button>
+                </div>
+                <div class="box2">
+                    <h3>[-1, 2]=?</h3>
+                    <button onclick="maxProduct([-1, 2])">ans</button>
+                </div>
+                <div class="box2">
+                    <h3>[-1, 0, 2]=?</h3>
+                    <button onclick="maxProduct([-1, 0, 2])">ans</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>第四題</h1>
+            <div class="box">
+                <h2>陣列中的第幾個數加第幾個數會等於目標數值?</h2>
+                <h3>[2, 11, 7, 15]=9</h3>
+                <button onclick="alert(twoSum([2, 11, 7, 15], 9))">ans</button>
+            </div>
+        </div>
+        <div>
+            <h1>第五題</h1>
+            <div class="box" style="height:120px">
+                <h2>計算連續出現 0 的最大長度</h2>
+                <div class="box2">
+                    <h3>[0, 1, 0, 0]</h3>
+                    <button onclick="maxZeros([0, 1, 0, 0])" style="left:210px">ans</button>
+                </div>
+                <div class="box2">
+                    <h3>[1, 0, 0, 0, 0, 1, 0, 1, 0, 0]</h3>
+                    <button onclick="maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0])" style="left:210px">ans</button>
+                </div>
+                <div class="box2">
+                    <h3>[1, 1, 1, 1]</h3>
+                    <button onclick="maxZeros([1, 1, 1, 1])" style="left:210px">ans</button>
+                </div>
+                <div class="box2">
+                    <h3>[0, 0, 1, 1]</h3>
+                    <button onclick="maxZeros([0, 0, 1, 1])" style="left:210px">ans</button>
+                </div>  
+            </div>
+        </div>
+    </body>
+</html>
