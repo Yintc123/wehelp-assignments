@@ -41,7 +41,7 @@
 			let url="https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
 			
 			fetch(url).then(function(response){
-				return response.json();
+				return response.json();//將檔案轉成JSON格式
 			}).then(function(dataOrig){
 				data=dataOrig["result"]["results"];
 				for(let i=0;i<temp;i++){
