@@ -48,7 +48,7 @@
 					varyApicbox(data, i);
 					n+=1;
 				}
-				return data;
+				return data;//return的資料能至下一層的變數作使用
 			}).then(function(data){//不需傳n，已經存於變數n中
 				btn=document.getElementById("btn");
 				btn.addEventListener("click", function(){
