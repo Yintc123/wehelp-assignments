@@ -1,0 +1,40 @@
+body{
+    margin:0px;
+    text-align:center;
+    background-color:#84d6eb;
+}
+h1{
+    background-color:#3d85c8;
+    text-align:center;
+    margin:0px;
+    padding:50px;
+    color:#FFFFFF;
+    opacity:1;
+}
+.content{
+    margin:20px auto;
+    display:flex;
+    justify-content:center;
+}
+.content form{
+    border:2px solid #000000;
+    text-align:center;
+    padding:10px 30px;
+    border-radius:10px;
+    background-color:#78FAA9;
+}
+.content form input{
+    padding:5px;
+    margin:5px;
+    border-radius:2px;
+    border:1px solid #777777;
+}
+.content form button{
+    margin:20px;
+}
+
+@media screen and (max-width:600px){
+    .content form{
+        width:70%
+    }
+}
