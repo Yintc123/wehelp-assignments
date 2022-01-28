@@ -6,6 +6,7 @@
 ## 要求三：SQL CRUD
  - [x] 1. 使用INSERT 指令新增一筆資料到 member 資料表中，這筆資料的 username 和
 password 欄位必須是 test。接著繼續新增至少 4 筆隨意的資料。
+
 ![picture3-1-1](3-1-1.png)
 ![picture3-1-2](3-1-2.png)
  - [x] 2. 使用 SELECT 指令取得所有在 member 資料表中的會員資料。
