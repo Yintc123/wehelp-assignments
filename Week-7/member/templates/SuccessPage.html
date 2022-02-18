@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HomePage</title>
+        <link rel="stylesheet" href="{{url_for( 'member.static', filename='success.css' )}}">
+    </head>
+    <body>
+        <h1>歡迎光臨，這是會員頁</h1>
+        <div>
+            <h3>恭喜<span id="n">{{name}}</span>，成功登入系統</h3>
+            <a href="/">首頁</a>
+            <a href="/signout">登出系統</a>
+        </div>
+        <div>
+            <h3>查詢會員姓名</h3>
+            <input id="search" type="text" name="username" placeholder="請輸入會員帳號" />
+            <button id="btn" onclick="searchName()">查詢</button>
+            <br/>
+            <h4 id="name"></h4>
+        </div>
+        <div>
+            <form action="" method="POST">
+                <h3>更新我的姓名</h3>
+                <input id="inputName" type="text" placeholder="請輸入想更新的姓名"/>
+                <button id="renew_btn" onclick="renewName()" type="reset">更新</button>
+                <h4 id="message"></h4>
+            </form>
+        </div>
+        <script type="text/javascript" src="{{url_for('member.static', filename='member.js')}}"></script>
+    </body>
+</html>

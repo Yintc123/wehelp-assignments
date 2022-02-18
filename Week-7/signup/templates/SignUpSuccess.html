@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HomePage</title>
+        <link rel="stylesheet" href="{{url_for( 'signup.static', filename='home.css' )}}">
+    </head>
+    <body>
+        <h1>歡迎光臨，已成功註冊帳號密碼</h1>
+        <h2><span id="second">3</span>秒後跳轉至登入頁面</h2>
+        <!--<a href="/error">失敗頁面</a>-->
+        <script>
+            let second=document.getElementById("second");
+            second.style.color="red";
+            var i=3;
+            function count(){
+                second.style.color="red";
+                if(i>0){
+                    second.textContent=i;
+                }else{
+                    location.href="http://127.0.0.1:3000/";
+                }
+                i--;
+                console.log(i);
+            }
+            window.setInterval(function(){
+                count();
+            }, 1000)
+        </script>
+    </body>
+</html>
